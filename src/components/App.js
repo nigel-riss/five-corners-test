@@ -1,8 +1,11 @@
+import { Header } from './Header.js';
+import { Cart } from './Cart.js';
 
 function App() {
   return (
     <div className="app">
-      <h1>Application Goes Here!</h1>
+      <Header />
+      <Cart />
     </div>
   );
 }
