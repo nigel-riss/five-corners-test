@@ -18,3 +18,10 @@ body {
 /* 28px = 1.75rem */
 /* 40px = 2.25rem */
 /* 50px = 3.125rem */
+
+
+.wrapper {
+  /* box model */
+  margin: 0 auto;
+  max-width: 1110px;
+}
