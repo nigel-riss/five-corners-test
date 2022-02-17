@@ -1,0 +1,51 @@
+.input {
+  /* positioning */
+  position: relative;
+
+  /* box model */
+  margin-bottom: 1rem;
+}
+
+.input__field {
+  /* box model */
+  width: 100%;
+  padding: 1.125rem 0;
+  padding-bottom: 0.5625rem;
+
+  /* border */
+  border: none;
+  border-bottom: 1px solid var(--grey-1);
+
+  /* typography */
+  line-height: 1;
+}
+
+.input__field:focus {
+  /* visual */
+  outline: none;
+}
+
+.input__label {
+  /* positioning */
+  position: absolute;
+  /* bottom: 0.5625rem; */
+  top: 1.125rem;
+  left: 0;
+  z-index: 2;
+
+  /* typography */
+  color: var(--grey-1);
+  line-height: 1;
+
+  /* visual */
+  transition: all 0.25s ease-in-out;
+}
+
+
+.input__field:focus + .input__label {
+  /* positioning */
+  top: 0;
+
+  /* typography */
+  font-size: 0.75rem;
+}

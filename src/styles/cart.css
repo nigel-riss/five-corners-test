@@ -3,5 +3,6 @@
 }
 
 .cart__login {
-  
+  /* box model */
+  margin-bottom: 2rem;
 }
