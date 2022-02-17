@@ -11,10 +11,24 @@
 
 .menu-icon line {
   /* positioning */
-  transform-origin: center center;
+  transform-origin: 50% 50%;
+
+  /* visual */
+  transition: all 0.25s ease-out;
 }
 
-.menu-icon--open {
+.menu-icon--open line:first-of-type {
+  /* positioning */
+  transform: rotate(45deg) translateY(10px);
+}
 
+.menu-icon--open line:nth-of-type(2) {
+  /* visual */
+  opacity: 0;
+}
+
+.menu-icon--open line:last-of-type {
+  /* positioning */
+  transform: rotate(-45deg) translateY(-10px);
 }
 

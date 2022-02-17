@@ -6,6 +6,13 @@
   margin-bottom: 2.25rem;
 }
 
+@media (min-width: 1200px) {
+  .header-top {
+    /* box model */
+    justify-content: flex-end;
+  }
+}
+
 .header-top__logo {
   /* box model */
   height: 1.5rem;

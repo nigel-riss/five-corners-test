@@ -7,6 +7,11 @@
   margin-right: 0.5rem;
 }
 
+.cart-icon img {
+  /* box model */
+  height: 1.375rem;
+}
+
 .cart-icon__count {
   /* positioning */
   position: absolute;
@@ -28,4 +33,16 @@
 
   /* visual */
   background-color: var(--black);
+}
+
+@media (min-width: 1200px) {
+  .cart-icon {
+    /* box model */
+    margin-left: 1.375rem;
+  }
+
+  .cart-icon img {
+    /* box model */
+    height: 1.5625rem;
+  }
 }

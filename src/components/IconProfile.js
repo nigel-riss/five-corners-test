@@ -1,4 +1,5 @@
 import profileIcon from '../img/icons/profile.svg';
+import '../styles/icon.css';
 
 
 const IconProfile = () => {

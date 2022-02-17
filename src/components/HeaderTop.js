@@ -17,10 +17,10 @@ const HeaderTop = (props) => {
 
   return (
     <div className="header-top">
-      <IconMenu
+      {isMobile && <IconMenu
         isOpen={isMenuShown}
         onClick={toggleMenu}
-      />
+      />}
 
       <Search />
 

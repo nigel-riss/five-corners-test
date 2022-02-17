@@ -3,6 +3,7 @@ ul.main-menu {
   position: absolute;
   left: 0;
   right: 0;
+  z-index: 9;
 
   /* box model */
   max-height: 0;
@@ -13,6 +14,53 @@ ul.main-menu {
   overflow: hidden;
   pointer-events: none;
   transition: all 0.25s ease-in-out;
+}
+
+ul.main-menu--shown {
+  /* box model */
+  max-height: 20rem;
+  padding: 1rem 1rem;
+
+  /* visual */
+  opacity: 1;
+  pointer-events: all;
+}
+
+.main-menu li {
+  /* box model */
+  padding: 0.5rem 0;
+
+  /* typography */
+  line-height: 1;
+  text-align: center;
+}
+
+.main-menu a {
+  /* box model */
+  display: inline-block;
+  vertical-align: top;
+  padding: 0.5rem;
+  
+  /* typography */
+  color: var(--grey-1);
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.main-menu a:hover {
+  /* typography */
+  color: var(--black);
+}
+
+.main-menu__logo {
+  /* box model */
+  display: none;
+}
+
+.main-menu__logo img {
+  /* box model */
+  width: 100%;
 }
 
 @media(min-width: 1200px) {
@@ -31,64 +79,25 @@ ul.main-menu {
     opacity: 1;
     pointer-events: all;
   }
-}
 
-ul.main-menu--shown {
-  /* box model */
-  max-height: 20rem;
-  padding: 1rem 1rem;
+  ul.main-menu--shown {
+    /* box model */
+    padding: 0;
+  }
 
-  /* visual */
-  opacity: 1;
-  pointer-events: all;
-}
-
-.main-menu li {
-  /* typography */
-  line-height: 1;
-  text-align: center;
-}
-
-@media(min-width: 1200px) {
   .main-menu li {
     /* box model */
     /* border: 2px solid fuchsia; */
   }
-}
 
-.main-menu a {
-  /* box model */
-  display: inline-block;
-  vertical-align: top;
-  padding: 0.5rem;
-  
-  /* typography */
-  color: var(--grey-1);
-  font-weight: 700;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-@media(min-width: 1200px) {
-  .main-menu a {
-    /* box model */
-    padding: 0;
-  }
-}
-
-.main-menu__logo {
-  /* box model */
-  display: none;
-}
-
-@media(min-width: 1200px) {
   .main-menu__logo {
     /* box model */
     display: block;
     margin: 0 2rem;
   }
-}
 
-.main-menu__logo img {
-  /* box model */
+  .main-menu a {
+    /* box model */
+    padding: 0;
+  }
 }

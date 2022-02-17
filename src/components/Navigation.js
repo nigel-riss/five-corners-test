@@ -14,13 +14,11 @@ const Navigation = (props) => {
       <li><a href="#">Страница 1</a></li>
       <li><a href="#">Страница 2</a></li>
       <li><a href="#">Страница 3</a></li>
-      <li>
-        <div className="main-menu__logo">
-          <img
-            src={logo}
-            alt="logo"
-          />
-        </div>
+      <li className="main-menu__logo">
+        <img
+          src={logo}
+          alt="logo"
+        />
       </li>
       <li><a href="#">Страница 4</a></li>
       <li><a href="#">Страница 5</a></li>

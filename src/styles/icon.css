@@ -1,0 +1,17 @@
+.icon {
+  /* box model */
+  height: 1.375rem;
+}
+
+.icon img {
+  /* box model */
+  height: 100%;
+}
+
+@media (min-width: 1200px) {
+  .icon {
+    /* box model */
+    height: 1.5625rem;
+    margin-left: 1.375rem;
+  }
+}

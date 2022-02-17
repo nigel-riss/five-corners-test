@@ -1,5 +1,5 @@
 import heartIcon from '../img/icons/heart.svg';
-
+import '../styles/icon.css';
 
 const IconFavorite = () => {
   return (

@@ -19,6 +19,7 @@ const Search = () => {
         id="search"
         type="text"
         className="search__field"
+        placeholder="Поиск"
       />
     </div>
   );
