@@ -2,3 +2,10 @@
   /* box model */
   padding: 1rem 0;
 }
+
+@media (min-width: 1.875rem) {
+  .header {
+    /* box model */
+    padding-bottom: 2rem;
+  }
+}

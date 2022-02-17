@@ -7,8 +7,9 @@ const Dropdown = (props) => {
   } = props;
 
   return (
-    <div className="dropdown">
+    <div className="dropdown input">
       <select
+        className="input__field"
         name=""
         id={id}
       >

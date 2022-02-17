@@ -12,6 +12,13 @@
   margin: 0 auto;
 }
 
+@media(min-width: 1200px) {
+  .header-top__logo {
+    /* box model */
+    display: none;
+  }
+}
+
 .header-top__logo img {
   /* box model */
   height: 100%;

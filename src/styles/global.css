@@ -1,19 +1,26 @@
-body {
+html {
   /* variables */
   --white: #ffffff;
   --black: #000000;
   --grey-1: #9f9f9f;
   --grey-2: #dedede;
   --error: #d80909;
+}
 
-  --desktop-br: 1200px;
-
+body {
   /* typography */
   color: var(--black);
   font-size: 16px;
   font-family: Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width: 1200px) {
+  body {
+    /* box model */
+    padding: 1.875rem;
+  }
 }
 
 /* 18px = 1.125rem */
@@ -28,4 +35,12 @@ body {
   margin: 0 auto;
   max-width: 1110px;
   padding: 0 1rem;
+
+}
+
+@media(min-width: 1200px) {
+  .wrapper {
+    /* box model */
+    padding: 0;
+  }
 }
