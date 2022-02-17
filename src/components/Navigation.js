@@ -7,8 +7,6 @@ const Navigation = (props) => {
     isShown,
   } = props;
 
-  console.log(isShown);
-
   return (
     <ul
       className={`main-menu ${isShown ? `main-menu--shown` : ``}`}

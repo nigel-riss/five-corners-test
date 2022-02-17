@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useMobileWidth } from '../hooks/useMobileWidth.js';
 import { Header } from './Header.js';
 import { Cart } from './Cart.js';
