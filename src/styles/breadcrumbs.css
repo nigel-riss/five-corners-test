@@ -1,0 +1,40 @@
+.breadcrumbs {
+  /* box model */
+  display: flex;
+}
+
+.breadcrumbs__item {
+  /* typography */
+  font-size: 1.125rem;
+}
+
+.breadcrumbs__item::after {
+  content: "/";
+
+  /* box model */
+  margin: 0 0.75rem;
+
+  /* typography */
+  color: var(--grey-1);
+}
+
+.breadcrumbs__item a {
+  /* typography */
+  color: var(--grey-1);
+  text-decoration: none;
+}
+
+
+.breadcrumbs__item a:hover {
+  /* typography */
+  color: var(--black);
+}
+
+.breadcrumbs__item--current {
+  /* typography */
+  color: var(--black);
+}
+
+.breadcrumbs__item--current::after {
+  content: "";
+}

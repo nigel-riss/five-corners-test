@@ -1,0 +1,19 @@
+.link {
+  /* border */
+  border: none;
+
+  /* typography */
+  color: var(--grey-1);
+  text-decoration: underline;
+
+  /* visual */
+  background-color: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.link:hover {
+  /* typography */
+  color: var(--black);
+}

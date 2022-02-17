@@ -1,0 +1,31 @@
+.cart-icon {
+  /* positioning */
+  position: relative;
+
+  /* box model */
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+}
+
+.cart-icon__count {
+  /* positioning */
+  position: absolute;
+  right: -0.5rem;
+  top: -0.25rem;
+
+  /* box model */
+  height: 1rem;
+  min-width: 1rem;
+
+  /* border */
+  border-radius: 50%;
+
+  /* typography */
+  color: var(--white);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  text-align: center;
+
+  /* visual */
+  background-color: var(--black);
+}

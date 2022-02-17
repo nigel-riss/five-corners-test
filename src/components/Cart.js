@@ -2,19 +2,24 @@ import { Button } from './Button.js';
 import { Form } from './Form.js';
 import { Items } from './Items.js';
 
-import data from '../mocks.json';
+import '../styles/cart.css';
+import '../styles/link.css';
+import '../styles/title.css';
 
 
-const Cart = () => {
-  const items = JSON.parse(data);
+const Cart = (props) => {
+  const {
+    items,
+    updateItems,
+  } = props;
 
   return (
     <section className="cart">
       <div className="wrapper">
-        <h1 className="cart__title">Корзина</h1>
+        <h1 className="title cart__title">Корзина</h1>
         <div className="cart__login">
           Есть аккаунт?
-          <button>Войти</button>
+          <button className="link">Войти</button>
           {/* Почему <button>? Чтобы понимать какой элемент тут
               должен быть на самом деле, нужно понимать архитектуру
               целого приложения. Будет ли переход по другому URL

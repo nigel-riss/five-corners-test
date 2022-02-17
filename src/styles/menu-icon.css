@@ -1,0 +1,20 @@
+.menu-icon {
+  /* box model */
+  height: 1.25rem;
+  margin-right: 1rem;
+}
+
+.menu-icon svg {
+  /* box model */
+  height: 100%;
+}
+
+.menu-icon line {
+  /* positioning */
+  transform-origin: center center;
+}
+
+.menu-icon--open {
+
+}
+

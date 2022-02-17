@@ -1,0 +1,19 @@
+.search {
+  /* box model */
+  display: flex;
+}
+
+.search__label {
+  /* box model */
+  height: 1.375rem;
+}
+
+.search__icon {
+  /* box model */
+  height: 100%;
+}
+
+.search__field {
+  /* box model */
+  display: none;
+}

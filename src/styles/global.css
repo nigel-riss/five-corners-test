@@ -6,6 +6,8 @@ body {
   --grey-2: #dedede;
   --error: #d80909;
 
+  --desktop-br: 1200px;
+
   /* typography */
   color: var(--black);
   font-size: 16px;
@@ -14,7 +16,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 20px = 1.125rem */
+/* 18px = 1.125rem */
+/* 20px = 1.25rem */
 /* 28px = 1.75rem */
 /* 40px = 2.25rem */
 /* 50px = 3.125rem */
@@ -24,4 +27,5 @@ body {
   /* box model */
   margin: 0 auto;
   max-width: 1110px;
+  padding: 0 1rem;
 }

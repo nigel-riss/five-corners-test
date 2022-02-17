@@ -1,0 +1,54 @@
+ul.main-menu {
+  /* positioning */
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  /* box model */
+  max-height: 0;
+  
+  /* visual */
+  background-color: var(--white);
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition: 
+    all 0.25s ease-in-out;
+}
+
+ul.main-menu--shown {
+  /* box model */
+  max-height: 20rem;
+  padding: 1rem 1rem;
+
+  /* visual */
+  opacity: 1;
+  pointer-events: all;
+}
+
+.main-menu li {
+  /* typography */
+  text-align: center;
+}
+
+.main-menu a {
+  /* box model */
+  display: inline-block;
+  vertical-align: top;
+  padding: 0.5rem;
+
+  /* typography */
+  color: var(--grey-1);
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.main-menu__logo {
+  /* box model */
+  display: none;
+}
+
+.main-menu__logo img {
+  /* box model */
+}

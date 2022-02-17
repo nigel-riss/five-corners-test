@@ -1,19 +1,37 @@
+
+import { useState } from 'react';
+import { Breadcrumbs } from './Breadcrumbs.js';
+import { HeaderTop } from './HeaderTop.js';
+import { Navigation } from './Navigation.js';
 import '../styles/header.css';
 
 
-const Header = () => {
+const Header = (props) => {
+  const [isMenuShown, setIsMenuShown] = useState(false);
+
+  const {
+    isMobile,
+    items,
+  } = props;
+
+  const handleMenuToggle = () => {
+    console.log(`wtf really`);
+    setIsMenuShown(prevState => !prevState);
+  };
+
   return (
     <header className="header">
       <div className="wrapper">
-        <div className="header__top">
-          <h3>top</h3>
-        </div>
-        <div className="header__nav">
-          <h3>navigation</h3>
-        </div>
-        <div className="header__breadcrumbs">
-          <h3>breadcrumbs</h3>
-        </div>
+        <HeaderTop
+          isMobile={isMobile}
+          items={items}
+          isMenuShown={isMenuShown}
+          toggleMenu={handleMenuToggle}
+        />
+        <Navigation
+          isShown={isMenuShown}
+        />
+        <Breadcrumbs />
       </div>
     </header>
   );
