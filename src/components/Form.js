@@ -1,6 +1,8 @@
 import { Dropdown } from './Dropdown.js';
 import { Input } from './Input.js';
 import { Map } from './Map.js';
+import '../styles/form.css';
+
 
 const Form = () => {
   return (

@@ -1,5 +1,19 @@
 .button {
+  /* box model */
+  display: block;
+  width: 100%;
+  padding: 1.125rem;
 
+  /* typography */
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+
+  /* visual */
+  background-color: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .button:hover {

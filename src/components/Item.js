@@ -1,6 +1,6 @@
 import { NumberInput } from './NumberInput.js';
-
 import '../styles/item.css';
+
 
 const Item = (props) => {
   const {

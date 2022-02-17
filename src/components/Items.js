@@ -1,5 +1,4 @@
 import { Item } from './Item.js';
-
 import '../styles/items.css';
 
 
@@ -7,8 +6,6 @@ const Items = (props) => {
   const {
     items,
   } = props;
-
-  console.log(items);
 
   const renderItems = (items) => items
     .map(item => (
@@ -21,7 +18,7 @@ const Items = (props) => {
 
   return (
     <div className="items">
-      <h2 className="items__title">Выбранные товары</h2>
+      <h2 className="items__title">Выбранные товары:</h2>
       <div className="items__items">
         {renderItems(items)}
       </div>

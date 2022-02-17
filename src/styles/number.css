@@ -1,0 +1,46 @@
+.number {
+  /* box model */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* border */
+  border: 1px solid var(--black);
+}
+
+.number__button {
+  /* box model */
+  padding: 0.6875rem;
+
+  /* border */
+  border: none;
+
+  /* visual */
+  background-color: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.number__icon {
+  /* box model */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 0.75rem;
+  width: 0.75rem;
+}
+
+.number__button svg {
+}
+
+.number__value {
+  /* box model */
+  padding: 0 0.3125rem;
+
+  /* typography */
+  font-size: 1.25rem;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+}

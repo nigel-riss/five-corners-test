@@ -1,0 +1,16 @@
+.items {
+  /* box model */
+  margin-bottom: 1.5rem;
+}
+
+.items__title {
+  /* box model */
+  margin-bottom: 2rem;
+
+  /* typography */
+  font-size: 1.625rem;
+}
+
+.items__items {
+  
+}

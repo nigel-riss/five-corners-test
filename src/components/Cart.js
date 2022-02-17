@@ -33,6 +33,13 @@ const Cart = (props) => {
           items={items}
         />
 
+        <div className="cart__total">
+          <p className="cart__total-text">Итог:</p>
+          <div className="cart__total-price">
+            {`3790 руб.`}
+          </div>
+        </div>
+
         <Button
           title="Купить"
           onClick={() => {console.log(`Buy button click`)}}
