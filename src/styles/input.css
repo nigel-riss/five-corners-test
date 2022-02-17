@@ -1,6 +1,7 @@
 .input {
   /* positioning */
   position: relative;
+  flex-grow: 1;
 
   /* box model */
   margin-bottom: 1rem;

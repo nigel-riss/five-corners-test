@@ -2,3 +2,12 @@
   /* box model */
   margin-bottom: 2.25rem;
 }
+
+@media (min-width: 1200px) {
+  .form__fieldset {
+    /* box model */
+    display: flex;
+    justify-content: space-between;
+    gap: 2.1875rem;
+  }
+}

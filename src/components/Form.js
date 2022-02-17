@@ -15,17 +15,19 @@ const Form = () => {
 
       <Map />
 
-      <Input
-        id="name"
-        label="Ваше Имя"
-        onChange={() => {}}
-      />
+      <div className="form__fieldset">
+        <Input
+          id="name"
+          label="Ваше Имя"
+          onChange={() => {}}
+        />
 
-      <Input
-        id="phone"
-        label="Ваш Телефон"
-        onChange={() => {}}
-      />
+        <Input
+          id="phone"
+          label="Ваш Телефон"
+          onChange={() => {}}
+        />
+      </div>
 
       <Input
         id="email"
