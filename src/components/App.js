@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useMobileWidth } from '../hooks/useMobileWidth.js';
 import { Header } from './Header.js';
 import { Cart } from './Cart.js';
 import data from '../mocks.json';
@@ -6,7 +7,7 @@ import data from '../mocks.json';
 
 function App() {
   const [items, setItems] = useState(JSON.parse(data));
-  const [isMobile, setIsMobile] = useState(true);
+  const isMobile = useMobileWidth();
 
   return (
     <div className="app">
