@@ -11,6 +11,9 @@
   font-size: 1.625rem;
 }
 
-.items__items {
-  
+@media (min-width: 1200px) {
+  .items__title {
+    /* typography */
+    font-size: 1.75rem;
+  }
 }

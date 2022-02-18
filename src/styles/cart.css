@@ -3,17 +3,6 @@
   padding-bottom: 2.25rem;
 }
 
-@media (min-width: 1200px) {
-  .cart {
-    /* box model */
-    padding-right: calc(50% + 3.125rem);
-  }
-}
-
-.cart__title {
-
-}
-
 .cart__login {
   /* box model */
   margin-bottom: 2rem;
@@ -29,4 +18,11 @@
   font-size: 1.625rem;
   font-weight: 700;
   line-height: 1;
+}
+
+@media (min-width: 1200px) {
+  .cart {
+    /* box model */
+    padding-right: calc(50% + 3.125rem);
+  }
 }

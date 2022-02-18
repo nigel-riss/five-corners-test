@@ -4,7 +4,11 @@ import { Map } from './Map.js';
 import '../styles/form.css';
 
 
-const Form = () => {
+const Form = (props) => {
+  const {
+    isMobile,
+  } = props;
+
   return (
     <div className="form">
       <Input
@@ -13,7 +17,7 @@ const Form = () => {
         onChange={() => {}}
       />
 
-      <Map />
+      {isMobile && <Map />}
 
       <div className="form__fieldset">
         <Input

@@ -4,6 +4,11 @@
 }
 
 @media (min-width: 1200px) {
+  .form {
+    /* box model */
+    margin-bottom: 4.375rem;
+  }
+
   .form__fieldset {
     /* box model */
     display: flex;

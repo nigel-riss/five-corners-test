@@ -4,6 +4,9 @@
   width: 100%;
   padding: 1.125rem;
 
+  /* border */
+  border: 1px solid var(--black);
+
   /* typography */
   font-size: 1.25rem;
   font-weight: 700;
@@ -17,9 +20,21 @@
 }
 
 .button:hover {
+  /* typography */
+  color: var(--white);
 
+  /* visual */
+  background-color: var(--black);
 }
 
 .button:active {
-  
+  /* visual */
+  opacity: 0.5;
+}
+
+@media (min-width: 1200px) {
+  .button {
+    /* box model */
+    padding: 1.5rem;
+  }
 }

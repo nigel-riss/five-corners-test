@@ -12,6 +12,7 @@ const NumberInput = (props) => {
     <div className="number">
       <button
         className="number__button"
+        onClick={onDec}
       >
         <div className="number__icon">
           <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -24,6 +25,7 @@ const NumberInput = (props) => {
       </div>
       <button
         className="number__button"
+        onClick={onInc}
       >
         <div className="number__icon">
           <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

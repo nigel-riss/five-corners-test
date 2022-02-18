@@ -9,6 +9,7 @@ import '../styles/title.css';
 
 const Cart = (props) => {
   const {
+    isMobile,
     items,
     updateItems,
   } = props;
@@ -27,18 +28,20 @@ const Cart = (props) => {
             */}
           </div>
 
-          <Form />
+          <Form
+            isMobile={isMobile}
+          />
 
           <Items
             items={items}
           />
 
-          <div className="cart__total">
+          {isMobile && <div className="cart__total">
             <p className="cart__total-text">Итог:</p>
             <div className="cart__total-price">
               {`3790 руб.`}
             </div>
-          </div>
+          </div>}
 
           <Button
             title="Купить"

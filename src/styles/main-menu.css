@@ -85,11 +85,6 @@ ul.main-menu--shown {
     padding: 0;
   }
 
-  .main-menu li {
-    /* box model */
-    /* border: 2px solid fuchsia; */
-  }
-
   .main-menu__logo {
     /* box model */
     display: block;
