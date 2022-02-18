@@ -1,0 +1,19 @@
+.map {
+  /* box model */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  height: 12.5rem;
+  margin-bottom: 1.5rem;
+
+  /* visual */
+  background-color: var(--grey-1);
+}
+
+@media (min-width: 1200px) {
+  .map {
+    /* box model */
+    height: 43.75rem;
+  }
+}

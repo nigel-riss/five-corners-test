@@ -1,11 +1,16 @@
+import '../styles/map.css';
+
 
 const Map = (props) => {
   const {
     address,
+    onClick,
   } = props;
 
   return (
-    <h3>{address}</h3>
+    <div className="map">
+      <h3>{address}</h3>
+    </div>
   );
 };
 

@@ -3,6 +3,7 @@ const Dropdown = (props) => {
   const {
     id,
     label,
+    onChange,
     packageTypes,
     value,
   } = props;
@@ -10,14 +11,16 @@ const Dropdown = (props) => {
   console.log(value);
 
   return (
-    <div className="dropdown input">
+    <div className={`dropdown input ${value !== `` ? `input--filled` : ``}`}>
       <select
         className="input__field"
-        name=""
+        name={id}
         id={id}
+        onChange={onChange}
         value={value}
       >
-        <option value="not_packed">без упаковки</option>
+        <option value=""></option>
+        <option value="unpacked">без упаковки</option>
         <option value="standard">стандартная</option>
         <option value="gift">подарочная</option>
       </select>

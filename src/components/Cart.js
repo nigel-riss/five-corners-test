@@ -1,6 +1,8 @@
 import { Button } from './Button.js';
 import { Form } from './Form.js';
 import { Items } from './Items.js';
+import { Map } from './Map.js';
+import { TotalPrice } from './TotalPrice.js';
 import { getTotalItemsPrice } from '../utils/common.js';
 import '../styles/cart.css';
 import '../styles/link.css';
@@ -45,17 +47,24 @@ const Cart = (props) => {
             onItemRemove={onItemRemove}
           />
 
-          {isMobile && <div className="cart__total">
-            <p className="cart__total-text">Итог:</p>
-            <div className="cart__total-price">
-              {`${getTotalItemsPrice(items)} руб.`}
-            </div>
-          </div>}
+          {isMobile && <TotalPrice
+            value={getTotalItemsPrice(items)}
+          />}
 
           <Button
             title="Купить"
             onClick={() => {console.log(`Buy button click`)}}
           />
+
+          {!isMobile && <div className="cart__map">
+            <Map
+              address={contacts.address}
+              onClick={() => {}}
+            />
+            <TotalPrice
+              value={getTotalItemsPrice(items)}
+            />
+          </div>}
       </section>
     </div>
   );

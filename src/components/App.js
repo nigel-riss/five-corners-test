@@ -9,18 +9,28 @@ import data from '../mocks.json';
 function App() {
   const [items, setItems] = useState(JSON.parse(data));
   const [contacts, setContacts] = useState({
-    address: `мой адрес`,
-    name: `Юра`,
-    phone: `+7123`,
-    email: `my.email.com`,
-    packageType: `gift`,
-    comment: `123`,
+    address: ``,
+    name: ``,
+    phone: ``,
+    email: ``,
+    packageType: ``,
+    comment: ``,
   });
 
   const isMobile = useMobileWidth();
 
-  const handleContactsUpdate = (name, value) => {
+  const handleContactsUpdate = (event) => {
+    const {
+      name,
+      value,
+    } = event.target;
+
     console.log(name, value);
+
+    setContacts(prevState => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
   const handleItemRemoval = (id) => {
