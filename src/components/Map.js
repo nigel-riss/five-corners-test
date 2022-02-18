@@ -1,7 +1,11 @@
 
 const Map = (props) => {
+  const {
+    address,
+  } = props;
+
   return (
-    <h3>Map will be here</h3>
+    <h3>{address}</h3>
   );
 };
 

@@ -9,8 +9,10 @@ import '../styles/title.css';
 
 const Cart = (props) => {
   const {
+    contacts,
     isMobile,
     items,
+    onContactsUpdate,
     onItemCountInc,
     onItemCountDec,
     onItemRemove,
@@ -31,7 +33,9 @@ const Cart = (props) => {
           </div>
 
           <Form
+            contacts={contacts}
             isMobile={isMobile}
+            onContactsUpdate={onContactsUpdate}
           />
 
           <Items

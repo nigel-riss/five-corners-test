@@ -6,49 +6,68 @@ import '../styles/form.css';
 
 const Form = (props) => {
   const {
+    contacts,
     isMobile,
+    onContactsUpdate,
   } = props;
+
+  const {
+    address,
+    name,
+    phone,
+    email,
+    packageType,
+    comment,
+  } = contacts;
 
   return (
     <div className="form">
       <Input
         id="address"
         label="Адрес"
-        onChange={() => {}}
+        onChange={onContactsUpdate}
+        value={address}
       />
 
-      {isMobile && <Map />}
+      {isMobile && <Map
+        address={address}
+      />}
 
       <div className="form__fieldset">
         <Input
           id="name"
           label="Ваше Имя"
-          onChange={() => {}}
+          onChange={onContactsUpdate}
+          value={name}
         />
 
         <Input
           id="phone"
           label="Ваш Телефон"
-          onChange={() => {}}
+          onChange={onContactsUpdate}
+          value={phone}
         />
       </div>
 
       <Input
         id="email"
         label="Ваш Email"
-        onChange={() => {}}
+        onChange={onContactsUpdate}
+        value={email}
       />
 
       <Dropdown
-        id="package"
+        id="packageType"
         label="Тип упаковки"
-        onChange={() => {}}
+        onChange={onContactsUpdate}
+        value={packageType}
       />
 
       <Input
         id="comment"
         label="Введите комментарий"
-        onChange={() => {}}
+        onChange={onContactsUpdate}
+        value={comment}
       />
 
     </div>

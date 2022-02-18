@@ -4,7 +4,10 @@ const Dropdown = (props) => {
     id,
     label,
     packageTypes,
+    value,
   } = props;
+
+  console.log(value);
 
   return (
     <div className="dropdown input">
@@ -12,6 +15,7 @@ const Dropdown = (props) => {
         className="input__field"
         name=""
         id={id}
+        value={value}
       >
         <option value="not_packed">без упаковки</option>
         <option value="standard">стандартная</option>

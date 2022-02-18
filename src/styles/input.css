@@ -42,7 +42,7 @@
   transition: all 0.25s ease-in-out;
 }
 
-
+.input--filled .input__label, 
 .input__field:focus + .input__label {
   /* positioning */
   top: 0;

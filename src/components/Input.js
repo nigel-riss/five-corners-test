@@ -11,7 +11,7 @@ const Input = (props) => {
   } = props;
 
   return (
-    <div className="input">
+    <div className={`input ${value !== `` ? `input--filled` : ``}`}>
       <input
         className="input__field"
         id={id}

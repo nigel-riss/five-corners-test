@@ -8,7 +8,20 @@ import data from '../mocks.json';
 
 function App() {
   const [items, setItems] = useState(JSON.parse(data));
+  const [contacts, setContacts] = useState({
+    address: `мой адрес`,
+    name: `Юра`,
+    phone: `+7123`,
+    email: `my.email.com`,
+    packageType: `gift`,
+    comment: `123`,
+  });
+
   const isMobile = useMobileWidth();
+
+  const handleContactsUpdate = (name, value) => {
+    console.log(name, value);
+  };
 
   const handleItemRemoval = (id) => {
     setItems(prevItems => prevItems
@@ -34,7 +47,7 @@ function App() {
           : item.amount,
       }))
     );
-  }
+  };
 
   return (
     <div className="app">
@@ -42,7 +55,9 @@ function App() {
         isMobile={isMobile}
         itemsCount={getTotalItemsCount(items)}
       />
-      <Cart 
+      <Cart
+        contacts={contacts}
+        onContactsUpdate={handleContactsUpdate}
         isMobile={isMobile}
         items={items}
         onItemCountInc={handleItemCountInc}
