@@ -5,13 +5,19 @@ import '../styles/items.css';
 const Items = (props) => {
   const {
     items,
+    onItemCountInc,
+    onItemCountDec,
+    onItemRemove,
   } = props;
 
   const renderItems = (items) => items
     .map(item => (
         <Item
-          key={item.id}
           item={item}
+          key={item.id}
+          onInc={onItemCountInc}
+          onDec={onItemCountDec}
+          onRemove={onItemRemove}
         />
       )
     );

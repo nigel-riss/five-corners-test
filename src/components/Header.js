@@ -11,7 +11,7 @@ const Header = (props) => {
 
   const {
     isMobile,
-    items,
+    itemsCount,
   } = props;
 
   const handleMenuToggle = () => {
@@ -24,7 +24,7 @@ const Header = (props) => {
       <div className="wrapper">
         <HeaderTop
           isMobile={isMobile}
-          items={items}
+          itemsCount={itemsCount}
           isMenuShown={isMenuShown}
           toggleMenu={handleMenuToggle}
         />

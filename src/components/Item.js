@@ -5,6 +5,8 @@ import '../styles/item.css';
 const Item = (props) => {
   const {
     item,
+    onInc,
+    onDec,
     onRemove,
   } = props;
 
@@ -35,13 +37,13 @@ const Item = (props) => {
 
         <footer className="item__footer">
           <NumberInput
-            onInc={() => {}}
-            onDec={() => {}}
+            onInc={() => {onInc(id)}}
+            onDec={() => {onDec(id)}}
             value={amount}
           />
           <button
             className="item__remove"
-            onClick={() => {}}
+            onClick={() => onRemove(id)}
           >Удалить
           </button>
         </footer>

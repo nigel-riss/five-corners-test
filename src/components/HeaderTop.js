@@ -36,7 +36,6 @@ const HeaderTop = (props) => {
 
       <IconCart
         itemsCount={itemsCount}
-        itemsCount="6"
       />
     </div>
   );

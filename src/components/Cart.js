@@ -1,7 +1,7 @@
 import { Button } from './Button.js';
 import { Form } from './Form.js';
 import { Items } from './Items.js';
-
+import { getTotalItemsPrice } from '../utils/common.js';
 import '../styles/cart.css';
 import '../styles/link.css';
 import '../styles/title.css';
@@ -11,7 +11,9 @@ const Cart = (props) => {
   const {
     isMobile,
     items,
-    updateItems,
+    onItemCountInc,
+    onItemCountDec,
+    onItemRemove,
   } = props;
 
   return (
@@ -34,12 +36,15 @@ const Cart = (props) => {
 
           <Items
             items={items}
+            onItemCountInc={onItemCountInc}
+            onItemCountDec={onItemCountDec}
+            onItemRemove={onItemRemove}
           />
 
           {isMobile && <div className="cart__total">
             <p className="cart__total-text">Итог:</p>
             <div className="cart__total-price">
-              {`3790 руб.`}
+              {`${getTotalItemsPrice(items)} руб.`}
             </div>
           </div>}
 

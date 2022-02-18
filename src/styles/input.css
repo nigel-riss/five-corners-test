@@ -29,9 +29,8 @@
 .input__label {
   /* positioning */
   position: absolute;
-  /* bottom: 0.5625rem; */
-  top: 1.125rem;
   left: 0;
+  top: 1.125rem;
   z-index: 2;
 
   /* typography */
@@ -39,6 +38,7 @@
   line-height: 1;
 
   /* visual */
+  pointer-events: none;
   transition: all 0.25s ease-in-out;
 }
 
