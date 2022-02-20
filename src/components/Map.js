@@ -1,32 +1,27 @@
+import { useCallback } from 'react';
 import {
-  useLoadScript,
+  // useLoadScript,
   useJsApiLoader,
   GoogleMap,
   Marker,
 } from '@react-google-maps/api';
-import { useCallback } from 'react';
+import {
+  MAP_CONTAINER_STYLES,
+  MAP_DEFAULT_ZOOM,
+  MAP_OPTIONS,
+} from '../utils/constants.js';
 import '../styles/map.css';
 
 // const MAP_API_LIBRARIES = [
-const libraries = [
-  `places`,
-];
-const MAP_CONTAINER_STYLES = {
-  height: `100%`,
-  width: `100%`,
-};
-const MAP_OPTIONS = {
-  disableDefaultUI: true,
-};
-const DEFAULT_CENTER = {
-  lat: 54.720379,
-  lng: 20.500891,
-};
+// const libraries = [
+//   `places`,
+// ];
 
 
 const Map = (props) => {
   const {
     address,
+    coords,
     onClick,
   } = props;
 
@@ -37,8 +32,10 @@ const Map = (props) => {
   });
 
   const handleMapClick = useCallback((event) => {
-    console.log(event);
-    onClick();
+    onClick({
+      lat: event.latLng.lat(),
+      lng: event.latLng.lng(),
+    });
   }, [onClick]);
 
   return (
@@ -47,12 +44,18 @@ const Map = (props) => {
         ? <GoogleMap
           id="map"
           mapContainerStyle={MAP_CONTAINER_STYLES}
-          zoom={8}
-          center={DEFAULT_CENTER}
+          zoom={MAP_DEFAULT_ZOOM}
+          center={coords}
           options={MAP_OPTIONS}
           onClick={handleMapClick}
           onLoad={() => {}}
         >
+          <Marker
+            position={{
+              lat: coords.lat,
+              lng: coords.lng,
+            }}
+          />
         </GoogleMap>
         : <></>}
     </div>

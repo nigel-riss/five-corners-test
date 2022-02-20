@@ -3,6 +3,7 @@ import { useMobileWidth } from '../hooks/useMobileWidth.js';
 import { getTotalItemsCount } from '../utils/common.js';
 import { Header } from './Header.js';
 import { Cart } from './Cart.js';
+import { MAP_DEFAULT_CENTER } from '../utils/constants.js';
 import data from '../mocks.json';
 
 
@@ -16,6 +17,7 @@ function App() {
     packageType: ``,
     comment: ``,
   });
+  const [coords, setCoords] = useState(MAP_DEFAULT_CENTER);
 
   const isMobile = useMobileWidth();
 
@@ -24,8 +26,6 @@ function App() {
       name,
       value,
     } = event.target;
-
-    console.log(name, value);
 
     setContacts(prevState => ({
       ...prevState,
@@ -59,6 +59,10 @@ function App() {
     );
   };
 
+  const handleCoordsChange = (newCoords) => {
+    setCoords({...newCoords});
+  };
+
   return (
     <div className="app">
       <Header
@@ -67,6 +71,8 @@ function App() {
       />
       <Cart
         contacts={contacts}
+        coords={coords}
+        onCoordsChange={handleCoordsChange}
         onContactsUpdate={handleContactsUpdate}
         isMobile={isMobile}
         items={items}

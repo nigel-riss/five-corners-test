@@ -12,9 +12,11 @@ import '../styles/title.css';
 const Cart = (props) => {
   const {
     contacts,
+    coords,
     isMobile,
     items,
     onContactsUpdate,
+    onCoordsChange,
     onItemCountInc,
     onItemCountDec,
     onItemRemove,
@@ -36,8 +38,10 @@ const Cart = (props) => {
 
           <Form
             contacts={contacts}
+            coords={coords}
             isMobile={isMobile}
             onContactsUpdate={onContactsUpdate}
+            onCoordsChange={onCoordsChange}
           />
 
           <Items
@@ -59,7 +63,8 @@ const Cart = (props) => {
           {!isMobile && <div className="cart__map">
             <Map
               address={contacts.address}
-              onClick={() => {}}
+              coords={coords}
+              onClick={onCoordsChange}
             />
             <TotalPrice
               value={getTotalItemsPrice(items)}
