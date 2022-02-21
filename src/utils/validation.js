@@ -7,7 +7,7 @@ export const validate = (contacts) => {
     packageType,
   } = contacts;
 
-  return {
+  const fieldsValidity = {
     address: address.length > 0,
     name: name.length > 0,
     phone: phone.match(/^((8|\+7)[-]?)?(\(?\d{3}\)?[-]?)?[\d\- ]{6,10}$/),
@@ -17,5 +17,12 @@ export const validate = (contacts) => {
       ),
     packageType: packageType.length > 0,
     comment: true,
+  };
+
+  const isValid = Object.values(fieldsValidity).every(val => val);
+
+  return {
+    isValid,
+    fields: fieldsValidity,
   };
 };

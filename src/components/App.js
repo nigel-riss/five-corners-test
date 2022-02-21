@@ -4,6 +4,7 @@ import { getTotalItemsCount } from '../utils/common.js';
 import { validate } from '../utils/validation.js';
 import { Header } from './Header.js';
 import { Cart } from './Cart.js';
+import { formatOrder } from '../utils/common.js';
 import { MAP_DEFAULT_CENTER } from '../utils/constants.js';
 import data from '../mocks.json';
 
@@ -69,8 +70,20 @@ function App() {
 
   const handleFormSubmit = () => {
     const validity = validate(contacts);
-    setValidity(validity);
-    window.scrollTo({top: 0, behavior:`smooth`});
+    setValidity(validity.fields);
+
+    if (validity.isValid) {
+      const order = {
+        contacts,
+        coords,
+        items,
+      };
+
+      alert(formatOrder(order));
+      console.log(order);
+    } else {
+      window.scrollTo({top: 0, behavior:`smooth`});
+    }
   };
 
 
