@@ -4,12 +4,13 @@ import { getTotalItemsCount } from '../utils/common.js';
 import { validate } from '../utils/validation.js';
 import { Header } from './Header.js';
 import { Cart } from './Cart.js';
-import { MAP_DEFAULT_CENTER } from '../utils/constants.js';
-import data from '../mocks.json';
-
+import {
+  API_URL,
+  MAP_DEFAULT_CENTER,
+} from '../utils/constants.js';
 
 function App() {
-  const [items, setItems] = useState(JSON.parse(data));
+  const [items, setItems] = useState([]);
   const [contacts, setContacts] = useState({
     address: ``,
     name: ``,
@@ -27,6 +28,12 @@ function App() {
     comment: true,
   });
   const [coords, setCoords] = useState(MAP_DEFAULT_CENTER);
+
+  useEffect(() => {
+    fetch(API_URL)
+      .then(res => res.json())
+      .then(data => setItems(JSON.parse(data)));
+  }, []);
 
   useEffect(() => {
     setValidity(validate(contacts).fields);

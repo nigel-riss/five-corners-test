@@ -1,5 +1,4 @@
 import { useCallback, useState } from 'react';
-// import 
 import '../styles/dropdown.css';
 import { DropdownOption } from './DropdownOption';
 
@@ -11,7 +10,6 @@ const Dropdown = (props) => {
     label,
     onChange,
     packageTypes,
-    validate,
     value,
   } = props;
 
