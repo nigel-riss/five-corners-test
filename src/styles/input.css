@@ -50,3 +50,19 @@
   /* typography */
   font-size: 0.75rem;
 }
+
+.input--invalid .input__field{
+  /* border */
+  border-bottom: 1px solid var(--error);
+
+  /* typography */
+  color: var(--error);
+}
+
+.input--invalid .input__label {
+  /* typography */
+  color: var(--error);
+}
+
+
+

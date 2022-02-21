@@ -4,6 +4,7 @@ import { Input } from './Input.js';
 const AddressInput = (props) => {
   const {
     id,
+    isValid,
     label,
     value,
     onBlur,
@@ -13,6 +14,7 @@ const AddressInput = (props) => {
   return (
     <Input
       id={id}
+      isValid={isValid}
       label={label}
       value={value}
       onBlur={onBlur}

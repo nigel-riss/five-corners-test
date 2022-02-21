@@ -2,21 +2,26 @@
 const Dropdown = (props) => {
   const {
     id,
+    isValid,
     label,
     onChange,
     // packageTypes,
     value,
   } = props;
 
-  console.log(value);
+  const className = `
+    input
+    ${value !== `` ? `input--filled` : ``} 
+    ${isValid ? `` : `input--invalid`} 
+  `;
 
   return (
-    <div className={`dropdown input ${value !== `` ? `input--filled` : ``}`}>
+    <div className={className}>
       <select
         className="input__field"
         name={id}
         id={id}
-        onChange={onChange}
+        onChange={(event) => onChange(event.target)}
         value={value}
       >
         <option value=""></option>

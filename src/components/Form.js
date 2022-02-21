@@ -13,6 +13,7 @@ const Form = (props) => {
     onAddressBlur,
     onContactsUpdate,
     onCoordsChange,
+    validity,
   } = props;
 
   const {
@@ -28,6 +29,7 @@ const Form = (props) => {
     <div className="form">
       <AddressInput
         id="address"
+        isValid={validity.address}
         label="Адрес"
         onBlur={onAddressBlur}
         onChange={onContactsUpdate}
@@ -42,6 +44,7 @@ const Form = (props) => {
       <div className="form__fieldset">
         <Input
           id="name"
+          isValid={validity.name}
           label="Ваше Имя"
           onChange={onContactsUpdate}
           value={name}
@@ -49,6 +52,7 @@ const Form = (props) => {
 
         <Input
           id="phone"
+          isValid={validity.phone}
           label="Ваш Телефон"
           onChange={onContactsUpdate}
           value={phone}
@@ -57,6 +61,7 @@ const Form = (props) => {
 
       <Input
         id="email"
+        isValid={validity.email}
         label="Ваш Email"
         onChange={onContactsUpdate}
         value={email}
@@ -64,6 +69,7 @@ const Form = (props) => {
 
       <Dropdown
         id="packageType"
+        isValid={validity.packageType}
         label="Тип упаковки"
         onChange={onContactsUpdate}
         value={packageType}
@@ -71,6 +77,7 @@ const Form = (props) => {
 
       <Input
         id="comment"
+        isValid={validity.comment}
         label="Введите комментарий"
         onChange={onContactsUpdate}
         value={comment}

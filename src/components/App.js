@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useMobileWidth } from '../hooks/useMobileWidth.js';
 import { getTotalItemsCount } from '../utils/common.js';
+import { validate } from '../utils/validation.js';
 import { Header } from './Header.js';
 import { Cart } from './Cart.js';
 import { MAP_DEFAULT_CENTER } from '../utils/constants.js';
@@ -17,16 +18,19 @@ function App() {
     packageType: ``,
     comment: ``,
   });
+  const [validity, setValidity] = useState({
+    address: true,
+    name: true,
+    phone: true,
+    email: true,
+    packageType: true,
+    comment: true,
+  });
   const [coords, setCoords] = useState(MAP_DEFAULT_CENTER);
 
   const isMobile = useMobileWidth();
 
-  const handleContactsUpdate = (event) => {
-    const {
-      name,
-      value,
-    } = event.target;
-
+  const handleContactsUpdate = ({name, value}) => {
     setContacts(prevState => ({
       ...prevState,
       [name]: value,
@@ -63,6 +67,13 @@ function App() {
     setCoords({...newCoords});
   };
 
+  const handleFormSubmit = () => {
+    const validity = validate(contacts);
+    setValidity(validity);
+    window.scrollTo({top: 0, behavior:`smooth`});
+  };
+
+
   return (
     <div className="app">
       <Header
@@ -72,13 +83,15 @@ function App() {
       <Cart
         contacts={contacts}
         coords={coords}
-        onCoordsChange={handleCoordsChange}
-        onContactsUpdate={handleContactsUpdate}
         isMobile={isMobile}
         items={items}
+        onCoordsChange={handleCoordsChange}
+        onContactsUpdate={handleContactsUpdate}
+        onFormSubmit={handleFormSubmit}
         onItemCountInc={handleItemCountInc}
         onItemCountDec={handleItemCountDec}
         onItemRemove={handleItemRemoval}
+        validity={validity}
       />
     </div>
   );

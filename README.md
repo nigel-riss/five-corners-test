@@ -6,10 +6,9 @@ technical task (specification)
 
 Things i'd do if it was for business purposes.
 
-- Map animation (pan on location change)
 - Storage (like Redux)
 - Talk to designer on form inputs desigions
-- 
+- Add validation texts
 - 
 
 

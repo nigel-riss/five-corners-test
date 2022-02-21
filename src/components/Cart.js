@@ -21,11 +21,13 @@ const Cart = (props) => {
     coords,
     isMobile,
     items,
+    onFormSubmit,
     onContactsUpdate,
     onCoordsChange,
     onItemCountInc,
     onItemCountDec,
     onItemRemove,
+    validity,
   } = props;
 
   const {
@@ -47,10 +49,9 @@ const Cart = (props) => {
 
     try {
       const results = await getGeocode({ address });
-      console.log(results);
       const { lat, lng } = await getLatLng(results[0]);
       callback(lat, lng);
-      console.log(`📍 Coordinates: `, { lat, lng });
+      // console.log(`📍 Coordinates: `, { lat, lng });
     } catch (error) {
       console.log(`😱 Error: `, error);
     }
@@ -61,18 +62,15 @@ const Cart = (props) => {
 
     try {
       const results = await getGeocode({location: coords});
-      onContactsUpdate({target: {
+      onContactsUpdate({
         name: `address`,
         value: results[0].formatted_address,
-      }});
+      });
     } catch (error) {
       console.log(`😱 Error: `, error);
     }
-    // const {
-    //   name,
-    //   value,
-    // }
-  }
+  };
+
 
   return (
     <div className="wrapper">
@@ -95,6 +93,7 @@ const Cart = (props) => {
             }}
             onContactsUpdate={onContactsUpdate}
             onCoordsChange={onCoordsChange}
+            validity={validity}
           />
 
           <Items
@@ -110,7 +109,7 @@ const Cart = (props) => {
 
           <Button
             title="Купить"
-            onClick={() => {console.log(`Buy button click`)}}
+            onClick={onFormSubmit}
           />
 
           {!isMobile && <div className="cart__map">
