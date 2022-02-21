@@ -25,14 +25,14 @@ const Dropdown = (props) => {
         value={key}
         onClick={(val) => {
           onChange({value: options[val], name: id});
-          if (validate) validate();
+          setIsTouched(true);
           setIsOpen(false);
         }}
       >
         {options[key]}
       </DropdownOption>
     ));
-  }, [id, onChange, validate]);
+  }, [id, onChange]);
 
   const className = `
     dropdown
@@ -49,8 +49,10 @@ const Dropdown = (props) => {
         id={id}
         name={id}
         onClick={() => {
-          setIsOpen(prevState => !prevState)
-          setIsTouched(true);
+          setIsOpen(prevState => {
+            if (prevState) setIsTouched(true);
+            return !prevState;
+          });
         }}
         readOnly
         type="text"
@@ -61,7 +63,7 @@ const Dropdown = (props) => {
       </ul>}
 
       <label
-        className="input__label"
+        className="input__label input__label--stuck"
         htmlFor={id}
       >
         {label}

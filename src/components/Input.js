@@ -36,7 +36,6 @@ const Input = (props) => {
         }}
         onChange={(event) => {
           onChange(event.target);
-          if (validate) validate();
         }}
       />
 

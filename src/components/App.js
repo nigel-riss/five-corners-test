@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useMobileWidth } from '../hooks/useMobileWidth.js';
 import { getTotalItemsCount } from '../utils/common.js';
 import { validate } from '../utils/validation.js';
@@ -27,6 +27,10 @@ function App() {
     comment: true,
   });
   const [coords, setCoords] = useState(MAP_DEFAULT_CENTER);
+
+  useEffect(() => {
+    setValidity(validate(contacts).fields);
+  }, [contacts]);
 
   const isMobile = useMobileWidth();
 
