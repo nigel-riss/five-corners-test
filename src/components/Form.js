@@ -14,6 +14,7 @@ const Form = (props) => {
     onAddressBlur,
     onContactsUpdate,
     onCoordsChange,
+    onMapLoaded,
     validity,
   } = props;
 
@@ -40,6 +41,7 @@ const Form = (props) => {
       {isMobile && <Map
         coords={coords}
         onClick={onCoordsChange}
+        onMapLoaded={onMapLoaded}
       />}
 
       <div className="form__fieldset">

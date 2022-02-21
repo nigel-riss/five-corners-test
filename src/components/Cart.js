@@ -83,7 +83,7 @@ const Cart = (props) => {
               )
             }}
             onContactsUpdate={onContactsUpdate}
-            onCoordsChange={onCoordsChange}
+            onCoordsChange={handleCoordsChange}
             onMapLoaded={handleMapLoaded}
             validity={validity}
           />
