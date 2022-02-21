@@ -1,4 +1,3 @@
-import { useState } from "react";
 import '../styles/input.css';
 
 
@@ -7,6 +6,7 @@ const Input = (props) => {
     id,
     label,
     value,
+    onBlur,
     onChange,
   } = props;
 
@@ -18,6 +18,7 @@ const Input = (props) => {
         name={id}
         type="text"
         value={value}
+        onBlur={onBlur}
         onChange={onChange}
       />
 

@@ -5,7 +5,7 @@ const Breadcrumbs = () => {
   return (
     <ol className="breadcrumbs">
       <li className="breadcrumbs__item">
-        <a href="#">Главная</a>
+        <a href="/">Главная</a>
       </li>
       <li className="breadcrumbs__item breadcrumbs__item--current">
         Корзина

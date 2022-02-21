@@ -62,7 +62,6 @@ const Cart = (props) => {
 
           {!isMobile && <div className="cart__map">
             <Map
-              address={contacts.address}
               coords={coords}
               onClick={onCoordsChange}
             />

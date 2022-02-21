@@ -1,3 +1,4 @@
+import { AddressInput } from './AddressInput.js';
 import { Dropdown } from './Dropdown.js';
 import { Input } from './Input.js';
 import { Map } from './Map.js';
@@ -7,8 +8,10 @@ import '../styles/form.css';
 const Form = (props) => {
   const {
     contacts,
+    coords,
     isMobile,
     onContactsUpdate,
+    onCoordsChange,
   } = props;
 
   const {
@@ -22,15 +25,17 @@ const Form = (props) => {
 
   return (
     <div className="form">
-      <Input
+      <AddressInput
         id="address"
         label="Адрес"
+        onBlur={onCoordsChange}
         onChange={onContactsUpdate}
         value={address}
       />
 
       {isMobile && <Map
-        address={address}
+        coords={coords}
+        onClick={onCoordsChange}
       />}
 
       <div className="form__fieldset">

@@ -1,4 +1,8 @@
-import { useCallback } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useRef
+} from 'react';
 import {
   // useLoadScript,
   useJsApiLoader,
@@ -7,6 +11,7 @@ import {
 } from '@react-google-maps/api';
 import {
   MAP_CONTAINER_STYLES,
+  MAP_DEFAULT_CENTER,
   MAP_DEFAULT_ZOOM,
   MAP_OPTIONS,
 } from '../utils/constants.js';
@@ -20,7 +25,6 @@ import '../styles/map.css';
 
 const Map = (props) => {
   const {
-    address,
     coords,
     onClick,
   } = props;
@@ -31,12 +35,26 @@ const Map = (props) => {
     // libraries,
   });
 
+  const mapRef = useRef();
+
+  useEffect(() => {
+    if (!mapRef.current) return;
+    mapRef.current.panTo({
+      lat: coords.lat,
+      lng: coords.lng,
+    });
+  }, [coords]);
+
   const handleMapClick = useCallback((event) => {
     onClick({
       lat: event.latLng.lat(),
       lng: event.latLng.lng(),
     });
   }, [onClick]);
+
+  const handleMapLoad = useCallback((map) => {
+    mapRef.current = map;
+  }, []);
 
   return (
     <div className="map">
@@ -45,10 +63,10 @@ const Map = (props) => {
           id="map"
           mapContainerStyle={MAP_CONTAINER_STYLES}
           zoom={MAP_DEFAULT_ZOOM}
-          center={coords}
+          center={MAP_DEFAULT_CENTER}
           options={MAP_OPTIONS}
           onClick={handleMapClick}
-          onLoad={() => {}}
+          onLoad={handleMapLoad}
         >
           <Marker
             position={{
