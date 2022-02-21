@@ -4,7 +4,7 @@ const Dropdown = (props) => {
     id,
     label,
     onChange,
-    packageTypes,
+    // packageTypes,
     value,
   } = props;
 

@@ -10,6 +10,7 @@ const Form = (props) => {
     contacts,
     coords,
     isMobile,
+    onAddressBlur,
     onContactsUpdate,
     onCoordsChange,
   } = props;
@@ -28,7 +29,7 @@ const Form = (props) => {
       <AddressInput
         id="address"
         label="Адрес"
-        onBlur={onCoordsChange}
+        onBlur={onAddressBlur}
         onChange={onContactsUpdate}
         value={address}
       />

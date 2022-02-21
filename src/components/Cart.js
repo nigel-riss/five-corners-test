@@ -1,3 +1,7 @@
+import usePlacesAutocomplete, {
+  getGeocode,
+  getLatLng,
+} from 'use-places-autocomplete';
 import { Button } from './Button.js';
 import { Form } from './Form.js';
 import { Items } from './Items.js';
@@ -10,6 +14,8 @@ import '../styles/title.css';
 
 
 const Cart = (props) => {
+  // const [isMapLoaded, setIsMapLoaded] = 
+
   const {
     contacts,
     coords,
@@ -22,6 +28,52 @@ const Cart = (props) => {
     onItemRemove,
   } = props;
 
+  const {
+    // ready: isAutocompleteReady,
+    // suggestions: {status, data},
+    setValue: setAutocompleteValue,
+    clearSuggestions,
+  } = usePlacesAutocomplete({
+    debounce: 300,
+    requestOptions: {},
+  });
+
+
+  const handleAddressBlur = async (address, callback) => {
+    // if (!isAutocompleteReady) return;
+
+    setAutocompleteValue(address, false);
+    clearSuggestions();
+
+    try {
+      const results = await getGeocode({ address });
+      console.log(results);
+      const { lat, lng } = await getLatLng(results[0]);
+      callback(lat, lng);
+      console.log(`📍 Coordinates: `, { lat, lng });
+    } catch (error) {
+      console.log(`😱 Error: `, error);
+    }
+  };
+
+  const handleCoordsChange = async (coords) => {
+    onCoordsChange(coords);
+
+    try {
+      const results = await getGeocode({location: coords});
+      onContactsUpdate({target: {
+        name: `address`,
+        value: results[0].formatted_address,
+      }});
+    } catch (error) {
+      console.log(`😱 Error: `, error);
+    }
+    // const {
+    //   name,
+    //   value,
+    // }
+  }
+
   return (
     <div className="wrapper">
       <section className="cart">
@@ -29,17 +81,18 @@ const Cart = (props) => {
           <div className="cart__login">
             Есть аккаунт?
             <button className="link">Войти</button>
-            {/* Почему <button>? Чтобы понимать какой элемент тут
-                должен быть на самом деле, нужно понимать архитектуру
-                целого приложения. Будет ли переход по другому URL
-                или будет появляться попап.
-            */}
           </div>
 
           <Form
             contacts={contacts}
             coords={coords}
             isMobile={isMobile}
+            onAddressBlur={() => {
+              handleAddressBlur(
+                contacts.address,
+                (lat, lng) => onCoordsChange({ lat, lng })
+              )
+            }}
             onContactsUpdate={onContactsUpdate}
             onCoordsChange={onCoordsChange}
           />
@@ -63,7 +116,7 @@ const Cart = (props) => {
           {!isMobile && <div className="cart__map">
             <Map
               coords={coords}
-              onClick={onCoordsChange}
+              onClick={handleCoordsChange}
             />
             <TotalPrice
               value={getTotalItemsPrice(items)}
