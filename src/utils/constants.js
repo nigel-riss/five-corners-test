@@ -13,3 +13,9 @@ export const MAP_DEFAULT_ZOOM = 11;
 export const MAP_OPTIONS = {
   disableDefaultUI: true,
 };
+
+export const PACKAGE_TYPES = {
+  unpacked: `Без упаковки`,
+  standard: `Стандартная`,
+  gift: `Подарочная`,
+};

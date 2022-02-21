@@ -2,6 +2,7 @@ import { AddressInput } from './AddressInput.js';
 import { Dropdown } from './Dropdown.js';
 import { Input } from './Input.js';
 import { Map } from './Map.js';
+import { PACKAGE_TYPES } from '../utils/constants.js';
 import '../styles/form.css';
 
 
@@ -72,6 +73,7 @@ const Form = (props) => {
         isValid={validity.packageType}
         label="Тип упаковки"
         onChange={onContactsUpdate}
+        packageTypes={PACKAGE_TYPES}
         value={packageType}
       />
 

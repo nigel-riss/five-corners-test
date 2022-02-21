@@ -1,3 +1,8 @@
+import { useCallback, useState } from 'react';
+// import 
+import '../styles/dropdown.css';
+import { DropdownOption } from './DropdownOption';
+
 
 const Dropdown = (props) => {
   const {
@@ -5,11 +10,30 @@ const Dropdown = (props) => {
     isValid,
     label,
     onChange,
-    // packageTypes,
+    packageTypes,
     value,
   } = props;
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const renderOptions = useCallback((options) => {
+    return Object.keys(options).map(key => (
+      <DropdownOption
+        key={key}
+        value={key}
+        onClick={(val) => {
+          onChange({value: options[val], name: id});
+          setIsOpen(false);
+        }}
+      >
+        {options[key]}
+      </DropdownOption>
+    ));
+  }, [id, onChange]);
+
   const className = `
+    dropdown
+    ${isOpen ? `dropdown--open` : ``}
     input
     ${value !== `` ? `input--filled` : ``} 
     ${isValid ? `` : `input--invalid`} 
@@ -17,18 +41,20 @@ const Dropdown = (props) => {
 
   return (
     <div className={className}>
-      <select
+      <input
         className="input__field"
-        name={id}
         id={id}
-        onChange={(event) => onChange(event.target)}
+        name={id}
+        onClick={() => {
+          setIsOpen(prevState => !prevState)
+        }}
+        readOnly
+        type="text"
         value={value}
-      >
-        <option value=""></option>
-        <option value="unpacked">без упаковки</option>
-        <option value="standard">стандартная</option>
-        <option value="gift">подарочная</option>
-      </select>
+      />
+      {isOpen && <ul className="dropdown__options">
+        {renderOptions(packageTypes)}
+      </ul>}
 
       <label
         className="input__label"

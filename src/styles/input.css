@@ -64,5 +64,8 @@
   color: var(--error);
 }
 
-
+.input__field:read-only {
+  /* visual */
+  cursor: pointer;
+}
 
