@@ -32,7 +32,10 @@ function App() {
   useEffect(() => {
     fetch(API_URL)
       .then(res => res.json())
-      .then(data => setItems(JSON.parse(data)));
+      .then(data => setItems(JSON.parse(data)))
+      .catch(error => {
+        console.log(error);
+      });
   }, []);
 
   useEffect(() => {
