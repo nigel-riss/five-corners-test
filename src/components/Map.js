@@ -4,7 +4,6 @@ import {
   useRef
 } from 'react';
 import {
-  // useLoadScript,
   useJsApiLoader,
   GoogleMap,
   Marker,
@@ -17,22 +16,17 @@ import {
 } from '../utils/constants.js';
 import '../styles/map.css';
 
-// const MAP_API_LIBRARIES = [
-// const libraries = [
-//   `places`,
-// ];
-
 
 const Map = (props) => {
   const {
     coords,
     onClick,
+    onMapLoaded,
   } = props;
 
   const { isLoaded } = useJsApiLoader({
     id: `google-map-script`,
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
-    // libraries,
   });
 
   const mapRef = useRef();
@@ -54,7 +48,8 @@ const Map = (props) => {
 
   const handleMapLoad = useCallback((map) => {
     mapRef.current = map;
-  }, []);
+    onMapLoaded();
+  }, [onMapLoaded]);
 
   return (
     <div className="map">

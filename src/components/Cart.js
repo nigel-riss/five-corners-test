@@ -1,4 +1,5 @@
-import usePlacesAutocomplete, {
+import { useState } from 'react';
+import {
   getGeocode,
   getLatLng,
 } from 'use-places-autocomplete';
@@ -14,8 +15,6 @@ import '../styles/title.css';
 
 
 const Cart = (props) => {
-  // const [isMapLoaded, setIsMapLoaded] = 
-
   const {
     contacts,
     coords,
@@ -30,34 +29,26 @@ const Cart = (props) => {
     validity,
   } = props;
 
-  const {
-    // ready: isAutocompleteReady,
-    // suggestions: {status, data},
-    setValue: setAutocompleteValue,
-    clearSuggestions,
-  } = usePlacesAutocomplete({
-    debounce: 300,
-    requestOptions: {},
-  });
+  const [isMapLoaded, setIsMapLoaded] = useState(false);
 
+  const handleMapLoaded = () => {
+    setIsMapLoaded(true);
+  };
 
   const handleAddressBlur = async (address, callback) => {
-    // if (!isAutocompleteReady) return;
-
-    setAutocompleteValue(address, false);
-    clearSuggestions();
+    if (!isMapLoaded) return;
 
     try {
       const results = await getGeocode({ address });
       const { lat, lng } = await getLatLng(results[0]);
       callback(lat, lng);
-      // console.log(`📍 Coordinates: `, { lat, lng });
     } catch (error) {
       console.log(`😱 Error: `, error);
     }
   };
 
   const handleCoordsChange = async (coords) => {
+    if (!isMapLoaded) return;
     onCoordsChange(coords);
 
     try {
@@ -93,6 +84,7 @@ const Cart = (props) => {
             }}
             onContactsUpdate={onContactsUpdate}
             onCoordsChange={onCoordsChange}
+            onMapLoaded={handleMapLoaded}
             validity={validity}
           />
 
@@ -116,6 +108,7 @@ const Cart = (props) => {
             <Map
               coords={coords}
               onClick={handleCoordsChange}
+              onMapLoaded={handleMapLoaded}
             />
             <TotalPrice
               value={getTotalItemsPrice(items)}
