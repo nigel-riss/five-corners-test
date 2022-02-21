@@ -5,7 +5,7 @@
 
 Верстать шапку необязательно. Необходимо выполнить вёрстку корзины.
 
-[Ссылка на макет] (https://www.figma.com/file/zbE6XYyoobN6cC1HmYOkoB/%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-(5-%D1%83%D0%B3%D0%BB%D0%BE%D0%B2)?node-id=0%3A1)
+[Ссылка на макет](https://www.figma.com/file/zbE6XYyoobN6cC1HmYOkoB/%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-(5-%D1%83%D0%B3%D0%BB%D0%BE%D0%B2)?node-id=0%3A1)
 
 Данные о товарах из корзины: https://run.mocky.io/v3/59f47e8e-2a09-48c3-8a1d-0af8e5817f7c
 
