@@ -85,6 +85,10 @@ function App() {
     }
   };
 
+  const validateContacts = () => {
+    setValidity(validate(contacts).fields);
+  };
+
 
   return (
     <div className="app">
@@ -103,6 +107,7 @@ function App() {
         onItemCountInc={handleItemCountInc}
         onItemCountDec={handleItemCountDec}
         onItemRemove={handleItemRemoval}
+        validate={validateContacts}
         validity={validity}
       />
     </div>

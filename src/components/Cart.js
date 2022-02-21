@@ -26,6 +26,7 @@ const Cart = (props) => {
     onItemCountInc,
     onItemCountDec,
     onItemRemove,
+    validate,
     validity,
   } = props;
 
@@ -85,6 +86,7 @@ const Cart = (props) => {
             onContactsUpdate={onContactsUpdate}
             onCoordsChange={handleCoordsChange}
             onMapLoaded={handleMapLoaded}
+            validate={validate}
             validity={validity}
           />
 

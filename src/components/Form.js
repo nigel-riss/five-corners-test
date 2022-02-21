@@ -1,4 +1,3 @@
-import { AddressInput } from './AddressInput.js';
 import { Dropdown } from './Dropdown.js';
 import { Input } from './Input.js';
 import { Map } from './Map.js';
@@ -15,6 +14,7 @@ const Form = (props) => {
     onContactsUpdate,
     onCoordsChange,
     onMapLoaded,
+    validate,
     validity,
   } = props;
 
@@ -29,12 +29,13 @@ const Form = (props) => {
 
   return (
     <div className="form">
-      <AddressInput
+      <Input
         id="address"
         isValid={validity.address}
         label="Адрес"
         onBlur={onAddressBlur}
         onChange={onContactsUpdate}
+        validate={validate}
         value={address}
       />
 
@@ -50,6 +51,7 @@ const Form = (props) => {
           isValid={validity.name}
           label="Ваше Имя"
           onChange={onContactsUpdate}
+          validate={validate}
           value={name}
         />
 
@@ -58,6 +60,7 @@ const Form = (props) => {
           isValid={validity.phone}
           label="Ваш Телефон"
           onChange={onContactsUpdate}
+          validate={validate}
           value={phone}
         />
       </div>
@@ -67,15 +70,17 @@ const Form = (props) => {
         isValid={validity.email}
         label="Ваш Email"
         onChange={onContactsUpdate}
+        validate={validate}
         value={email}
       />
 
-      <Dropdown
+    <Dropdown
         id="packageType"
         isValid={validity.packageType}
         label="Тип упаковки"
         onChange={onContactsUpdate}
         packageTypes={PACKAGE_TYPES}
+        validate={validate}
         value={packageType}
       />
 
@@ -84,6 +89,7 @@ const Form = (props) => {
         isValid={validity.comment}
         label="Введите комментарий"
         onChange={onContactsUpdate}
+        validate={validate}
         value={comment}
       />
 

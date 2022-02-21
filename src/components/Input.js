@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import '../styles/input.css';
 
 
@@ -9,12 +10,15 @@ const Input = (props) => {
     value,
     onBlur,
     onChange,
+    validate,
   } = props;
+
+  const [isTouched, setIsTouched] = useState(false);
 
   const className = `
     input
-    ${value !== `` ? `input--filled` : ``} 
-    ${isValid ? `` : `input--invalid`} 
+    ${value !== `` ? `input--filled` : ``}
+    ${!isValid && isTouched ? `input--invalid` : ``}
   `;
 
   return (
@@ -25,8 +29,15 @@ const Input = (props) => {
         name={id}
         type="text"
         value={value}
-        onBlur={onBlur}
-        onChange={(event) => onChange(event.target)}
+        onBlur={(event) => {
+          if (onBlur) onBlur(event);
+          if (validate) validate();
+          setIsTouched(true);
+        }}
+        onChange={(event) => {
+          onChange(event.target);
+          if (validate) validate();
+        }}
       />
 
       <label

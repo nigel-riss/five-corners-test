@@ -11,10 +11,12 @@ const Dropdown = (props) => {
     label,
     onChange,
     packageTypes,
+    validate,
     value,
   } = props;
 
   const [isOpen, setIsOpen] = useState(false);
+  const [isTouched, setIsTouched] = useState(false);
 
   const renderOptions = useCallback((options) => {
     return Object.keys(options).map(key => (
@@ -23,20 +25,21 @@ const Dropdown = (props) => {
         value={key}
         onClick={(val) => {
           onChange({value: options[val], name: id});
+          if (validate) validate();
           setIsOpen(false);
         }}
       >
         {options[key]}
       </DropdownOption>
     ));
-  }, [id, onChange]);
+  }, [id, onChange, validate]);
 
   const className = `
     dropdown
     ${isOpen ? `dropdown--open` : ``}
     input
-    ${value !== `` ? `input--filled` : ``} 
-    ${isValid ? `` : `input--invalid`} 
+    ${value !== `` ? `input--filled` : ``}
+    ${!isValid && isTouched ? `input--invalid` : ``}
   `;
 
   return (
@@ -47,6 +50,7 @@ const Dropdown = (props) => {
         name={id}
         onClick={() => {
           setIsOpen(prevState => !prevState)
+          setIsTouched(true);
         }}
         readOnly
         type="text"
