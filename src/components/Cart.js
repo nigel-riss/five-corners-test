@@ -31,6 +31,7 @@ const Cart = (props) => {
   } = props;
 
   const [isMapLoaded, setIsMapLoaded] = useState(false);
+  const [isForceValidated, setIsForceValidated] = useState(false);
 
   const handleMapLoaded = () => {
     setIsMapLoaded(true);
@@ -76,6 +77,7 @@ const Cart = (props) => {
           <Form
             contacts={contacts}
             coords={coords}
+            isForceValidated={isForceValidated}
             isMobile={isMobile}
             onAddressBlur={() => {
               handleAddressBlur(
@@ -103,7 +105,10 @@ const Cart = (props) => {
 
           <Button
             title="Купить"
-            onClick={onFormSubmit}
+            onClick={() => {
+              onFormSubmit();
+              setIsForceValidated(true);
+            }}
           />
 
           {!isMobile && <div className="cart__map">

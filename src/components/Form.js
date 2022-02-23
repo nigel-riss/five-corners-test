@@ -9,6 +9,7 @@ const Form = (props) => {
   const {
     contacts,
     coords,
+    isForceValidated,
     isMobile,
     onAddressBlur,
     onContactsUpdate,
@@ -31,6 +32,7 @@ const Form = (props) => {
     <div className="form">
       <Input
         id="address"
+        isForceValidated={isForceValidated}
         isValid={validity.address}
         label="Адрес"
         onBlur={onAddressBlur}
@@ -48,6 +50,7 @@ const Form = (props) => {
       <div className="form__fieldset">
         <Input
           id="name"
+          isForceValidated={isForceValidated}
           isValid={validity.name}
           label="Ваше Имя"
           onChange={onContactsUpdate}
@@ -57,6 +60,7 @@ const Form = (props) => {
 
         <Input
           id="phone"
+          isForceValidated={isForceValidated}
           isValid={validity.phone}
           label="Ваш Телефон"
           onChange={onContactsUpdate}
@@ -67,6 +71,7 @@ const Form = (props) => {
 
       <Input
         id="email"
+        isForceValidated={isForceValidated}
         isValid={validity.email}
         label="Ваш Email"
         onChange={onContactsUpdate}
@@ -76,6 +81,7 @@ const Form = (props) => {
 
     <Dropdown
         id="packageType"
+        isForceValidated={isForceValidated}
         isValid={validity.packageType}
         label="Тип упаковки"
         onChange={onContactsUpdate}
@@ -86,6 +92,7 @@ const Form = (props) => {
 
       <Input
         id="comment"
+        isForceValidated={isForceValidated}
         isValid={validity.comment}
         label="Введите комментарий"
         onChange={onContactsUpdate}

@@ -5,6 +5,7 @@ import '../styles/input.css';
 const Input = (props) => {
   const {
     id,
+    isForceValidated,
     isValid,
     label,
     value,
@@ -18,7 +19,7 @@ const Input = (props) => {
   const className = `
     input
     ${value !== `` ? `input--filled` : ``}
-    ${!isValid && isTouched ? `input--invalid` : ``}
+    ${!isValid && (isTouched || isForceValidated) ? `input--invalid` : ``}
   `;
 
   return (

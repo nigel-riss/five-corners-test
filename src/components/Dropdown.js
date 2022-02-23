@@ -6,6 +6,7 @@ import { DropdownOption } from './DropdownOption';
 const Dropdown = (props) => {
   const {
     id,
+    isForceValidated,
     isValid,
     label,
     onChange,
@@ -37,7 +38,7 @@ const Dropdown = (props) => {
     ${isOpen ? `dropdown--open` : ``}
     input
     ${value !== `` ? `input--filled` : ``}
-    ${!isValid && isTouched ? `input--invalid` : ``}
+    ${!isValid && (isTouched || isForceValidated)  ? `input--invalid` : ``}
   `;
 
   return (
